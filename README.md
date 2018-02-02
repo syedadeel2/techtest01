@@ -3,6 +3,8 @@ Technical Test 01
 
 Given the solution, please implement the following (Please use your discretion to come up with a solution that you would think is production quality).
 
+Fork the repository and send us your forked URL.
+
 
 Repository Layer
 ----------------
@@ -34,6 +36,8 @@ Notes
 -----
 
 Continuously commit as you progress through the code.
+
+
 Stuff we will be looking at:
 
 - Implementation of Entity Framework
