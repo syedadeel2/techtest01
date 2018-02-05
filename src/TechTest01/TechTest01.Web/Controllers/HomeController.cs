@@ -19,7 +19,16 @@ namespace TechTest01.Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            // Get All Products
+            var products = _productService.GetProducts();
+
+            // Create Random Onbject
+           var rand = new Random(2);
+
+            // Randomize the list
+            var model = products.Take(rand.Next(products.Count)).ToList();
+
+            return View(model);
         }
     }
 }

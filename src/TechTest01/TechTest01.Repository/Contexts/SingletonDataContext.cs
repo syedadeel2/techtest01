@@ -18,7 +18,7 @@ namespace TechTest01.Repository.Contexts
 
             private static SingletonDataContext _instance;
 
-            private SingletonDataContext() : base("TechTest01Db")
+            private SingletonDataContext() : base("name=TechTest01Db")
             {
                 // This protects class from instantiation
             }

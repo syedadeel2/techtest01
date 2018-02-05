@@ -1,7 +1,17 @@
-﻿
+﻿@model ICollection<TechTest01.Domain.Catalog.Product>
+
 @{
     ViewBag.Title = "Welcome To True Allance Online Shopping Store";
 }
 
-<h2>@ViewBag.Title</h2>
+<div class="row">
+
+    <h2>Best Products</h2>
+
+    @foreach (var item in Model)
+    {
+        @Html.DisplayFor(x => item, "ProductItem")
+    }
+
+</div>
 

@@ -16,3 +16,23 @@ textarea {
     max-width: 280px;
 }
 
+.product {
+    height: 220px;
+    width: 400px !important;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    padding: 10px;
+    margin: 10px 10px 0px 0px;
+}
+
+    .product .img {
+        text-align: center;
+    }
+
+        .product .img img {
+            width: 60%;
+        }
+
+    .product .price, .product .title {
+        text-align: center;
+    }
