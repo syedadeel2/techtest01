@@ -49,6 +49,7 @@
     <Compile Include="Contexts\ProductsContext.cs" />
     <Compile Include="Contexts\SingletonDataContext.cs" />
     <Compile Include="IRepository.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ProductRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
