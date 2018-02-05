@@ -47,6 +47,14 @@
       <Project>{883e0c00-69dd-4b75-840d-a5b62916467e}</Project>
       <Name>TechTest01.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TechTest01.Repository\TechTest01.Repository.csproj">
+      <Project>{860c1ecd-6c25-4925-a13d-6bcbd8fb27fe}</Project>
+      <Name>TechTest01.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TechTest01.Shared\TechTest01.Shared.csproj">
+      <Project>{73502833-7605-4df6-b017-2e7b651d581f}</Project>
+      <Name>TechTest01.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
