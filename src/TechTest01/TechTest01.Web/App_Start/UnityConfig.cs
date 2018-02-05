@@ -1,5 +1,7 @@
 using System;
-
+using TechTest01.Domain.Catalog;
+using TechTest01.Repository;
+using TechTest01.Services.Catalog;
 using Unity;
 
 namespace TechTest01.Web
@@ -36,12 +38,9 @@ namespace TechTest01.Web
         /// </remarks>
         public static void RegisterTypes(IUnityContainer container)
         {
-            // NOTE: To load from web.config uncomment the line below.
-            // Make sure to add a Unity.Configuration to the using statements.
-            // container.LoadConfiguration();
-
-            // TODO: Register your type's mappings here.
-            // container.RegisterType<IProductRepository, ProductRepository>();
+            // ProductService DI Injection
+            container.RegisterType<IRepository<Product>, ProductRepository>();
+            container.RegisterType<IProductService, ProductService>();
         }
     }
 }
