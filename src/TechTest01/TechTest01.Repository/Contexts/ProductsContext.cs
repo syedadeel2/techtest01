@@ -17,7 +17,10 @@ namespace TechTest01.Repository.Contexts
 
     public class ProductsContext : DbContext
     {
+        public ProductsContext() : base("TechTest01Db") { }
+
         public DbSet<Product> Products { get; set; }
+
 
     }
 }
