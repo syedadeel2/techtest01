@@ -12,7 +12,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var products_service_1 = require("../app/Services/products.service");
 var router_1 = require("@angular/router");
-require("rxjs/add/operator/switchMap");
 var ProductComponent = /** @class */ (function () {
     function ProductComponent(service, route, router) {
         this.service = service;
