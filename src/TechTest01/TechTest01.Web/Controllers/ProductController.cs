@@ -12,12 +12,22 @@ namespace TechTest01.Web.Controllers
     {
         private IProductService _productService;
 
+        protected override void OnException(ExceptionContext filterContext)
+        {
+            filterContext.ExceptionHandled = true;
+
+            filterContext.Result = new ViewResult
+            {
+                ViewName = "~/Views/Errors/Exception.cshtml",
+                ViewData = new ViewDataDictionary(filterContext.Exception)
+            };
+        }
+
         public ProductController(IProductService productService)
         {
             this._productService = productService;
         }
 
-        [HandleError(ExceptionType = typeof(RecordNotFoundException), View = "~/Views/Errors/Exception.cshtml")]
         public ActionResult ViewProduct(string slug)
         {
             // if its empty let redirect back to home page.
