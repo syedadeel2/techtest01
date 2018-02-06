@@ -38,6 +38,15 @@ namespace TechTest01.Services.Catalog
 
         }
 
+        public Product GetBySlug(string slug)
+        {
+            Product product = this._productRepository.GetEntityByProperty("Slug", slug);
+
+            if (product == null) throw new RecordNotFoundException("The product you are looking for was not found in the database.");
+
+            return product;
+        }
+
         public ICollection<Product> GetProducts()
         {
             var products = this._productRepository.GetEntities();

@@ -11,6 +11,8 @@ namespace TechTest01.Repository
 
         ICollection<TEntity> GetEntities();
 
+        TEntity GetEntityByProperty(string propertyName, string propertyValue);
+
         // Repository Add, Delete & Update methods is not required for this assignment, hence not specified here.
     }
 }

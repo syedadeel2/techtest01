@@ -14,10 +14,20 @@ namespace TechTest01.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                   name: "Product",
+                   url: "product/{*slug}",
+                   defaults: new { controller = "Product", action = "ViewProduct" },
+                   constraints: new { slug = ".+"}
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+
+
         }
     }
 }

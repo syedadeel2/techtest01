@@ -7,5 +7,6 @@ namespace TechTest01.Services.Catalog
     {
         ICollection<Product> GetProducts();
         Product GetById(int id);
+        Product GetBySlug(string slug);
     }
 }

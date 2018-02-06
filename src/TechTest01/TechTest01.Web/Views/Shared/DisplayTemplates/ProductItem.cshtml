@@ -1,5 +1,5 @@
 ﻿<div class="col-md-6 product">
-    <a href="/product/@Model.Slug">
+    <a href="@Url.RouteUrl("Product", new {slug = Model.Slug})">
         <div class="img">
             <img src='@Model.ImageUrl' />
         </div>
