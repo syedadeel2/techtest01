@@ -95,7 +95,7 @@ namespace TechTest01.Tests.Web
 
 
             var controller = new ProductsController(mockedService.Object);
-            var result = controller.GetProducts() as JsonResult;
+            var result = controller.All() as JsonResult;
 
             Assert.IsNotNull(result.Data);
             Assert.AreEqual(2, ((Collection<Product>)result.Data).Count);
@@ -112,7 +112,7 @@ namespace TechTest01.Tests.Web
 
 
             var controller = new ProductsController(mockedService.Object);
-            var result = controller.GetProducts() as JsonResult;
+            var result = controller.All() as JsonResult;
 
             Assert.IsNotNull(result.Data);
             Assert.AreEqual(0, ((Collection<Product>)result.Data).Count);

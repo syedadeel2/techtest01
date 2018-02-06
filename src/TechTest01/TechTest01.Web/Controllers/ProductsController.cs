@@ -28,12 +28,12 @@ namespace TechTest01.Web.Controllers
             return View(model);
         }
 
-        [Route("/api/products", Name = "GetProducts")]
-        public JsonResult GetProducts()
+        [HttpGet]
+        public JsonResult All()
         {
             var products = this._productService.GetProducts();
 
-            return Json(products);
+            return Json(products, JsonRequestBehavior.AllowGet);
         }
 
     }

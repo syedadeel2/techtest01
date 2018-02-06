@@ -32,7 +32,7 @@ namespace TechTest01.Web.Controllers
             return View(model);
         }
 
-        [Route("/api/product/{*slug}", Name = "GetProduct")]
+        [HttpGet]
         public JsonResult GetProduct(string slug)
         {
             // if its empty let redirect back to home page.
@@ -43,7 +43,7 @@ namespace TechTest01.Web.Controllers
 
             var product = this._productService.GetBySlug(slug);
 
-            return Json(product);
+            return Json(product, JsonRequestBehavior.AllowGet);
         }
     }
 }
