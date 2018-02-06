@@ -10,29 +10,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var http_1 = require("@angular/common/http");
+var products_service_1 = require("../app/Services/products.service");
+var router_1 = require("@angular/router");
 var ProductListComponent = /** @class */ (function () {
-    function ProductListComponent(http) {
-        var _this = this;
-        this.products = function () { return _this.productList; };
-        this.httpObj = http;
+    function ProductListComponent(service, route, router) {
+        this.service = service;
+        this.route = route;
+        this.router = router;
     }
     ProductListComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.httpObj.get("/products/all").subscribe(function (data) {
-            var index;
-            for (index in data) {
-                _this.productList.push(data[index]);
-            }
+        this.service.getProducts().subscribe(function (products) {
+            _this.productList = products;
         });
+    };
+    ProductListComponent.prototype.navigate = function (slug) {
+        this.router.navigate(['/product/' + slug]);
     };
     ProductListComponent = __decorate([
         core_1.Component({
             selector: 'product-list',
-            template: "\n<div ngFor=\"let product of products\" class=\"col-xs-6 col-md-4\">\n    <div class=\"product tumbnail thumbnail-3\">\n        <a href=\"{{product.Slug}}\"><img src=\"{{product.ImageUrl}}\" alt=\"\"></a>\n        <div class=\"caption\">\n            <h6><a href=\"{{product.Slug}}\">{{product.Name}}</a></h6><span class=\"price\">\n            </span><span class=\"price sale\">$ {{product.Price}}</span>\n        </div>\n    </div>\n</div>\n",
+            template: "\n<h2>Latest Products</h2>\n<div *ngFor=\"let product of productList\" class=\"col-xs-6 col-md-4\">\n    <div class=\"product tumbnail thumbnail-3\">\n        <a (click)=\"navigate(product.Slug)\"><img src=\"{{product.ImageUrl}}\" alt=\"\"></a>\n        <div class=\"caption\">\n            <h6><a (click)=\"navigate(product.Slug)\">{{product.Name}}</a></h6><span class=\"price\">\n            </span><span class=\"price sale\">$ {{product.Price}}</span>\n        </div>\n    </div>\n</div>\n",
+            providers: [products_service_1.ProductService]
         }),
-        core_1.Injectable(),
-        __metadata("design:paramtypes", [http_1.HttpClient])
+        __metadata("design:paramtypes", [products_service_1.ProductService, router_1.ActivatedRoute, router_1.Router])
     ], ProductListComponent);
     return ProductListComponent;
 }());

@@ -10,22 +10,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
-var AppComponent = /** @class */ (function () {
-    function AppComponent(route, router) {
-        this.route = route;
-        this.router = router;
-        this.name = 'True Alliance SPA Site';
-        this.router.navigate(['/products']);
+var http_1 = require("@angular/http");
+require("rxjs/add/operator/map");
+var ProductService = /** @class */ (function () {
+    function ProductService(http) {
+        this.http = http;
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            template: "\n<h1>Welcome To {{name}}</h1> \n\n<div class=\"row\">\n<router-outlet></router-outlet>\n</div>\n",
-        }),
-        __metadata("design:paramtypes", [router_1.ActivatedRoute, router_1.Router])
-    ], AppComponent);
-    return AppComponent;
+    ProductService.prototype.extractData = function (res) {
+        return res.json();
+    };
+    ProductService.prototype.getProducts = function () {
+        return this.http.get('/products/all').map(this.extractData);
+    };
+    ProductService.prototype.getProduct = function (slug) {
+        return this.http.get('/api/product/' + slug).map(this.extractData);
+    };
+    ProductService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [http_1.Http])
+    ], ProductService);
+    return ProductService;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.ProductService = ProductService;
+//# sourceMappingURL=products.service.js.map

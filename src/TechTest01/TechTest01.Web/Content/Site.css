@@ -388,3 +388,4 @@ div.section > div {
         .quantity [class*='fa-']:hover {
             color: #455a64;
         }
+.product a{ cursor: pointer;}

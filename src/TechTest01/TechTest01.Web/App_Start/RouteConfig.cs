@@ -28,6 +28,13 @@ namespace TechTest01.Web
             );
 
             routes.MapRoute(
+               name: "ProductAPI",
+               url: "api/product/{*slug}",
+               defaults: new { controller = "Product", action = "GetProduct" },
+               constraints: new { slug = ".+" }
+        );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

@@ -185,7 +185,10 @@
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
     <TypeScriptCompile Include="app\main.ts" />
+    <TypeScriptCompile Include="app\Models\IProduct.ts" />
+    <TypeScriptCompile Include="app\product.component.ts" />
     <TypeScriptCompile Include="app\productList.component.ts" />
+    <TypeScriptCompile Include="app\Services\products.service.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

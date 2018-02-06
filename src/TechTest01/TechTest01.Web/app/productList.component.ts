@@ -1,41 +1,40 @@
 ﻿import { Component, Input, Injectable, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ProductService } from '../app/Services/products.service';
+import { Product } from '../app/Models/IProduct';
+import { ProductComponent } from './product.component';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component( {
     selector: 'product-list',
     template: `
-<div ngFor="let product of products" class="col-xs-6 col-md-4">
+<h2>Latest Products</h2>
+<div *ngFor="let product of productList" class="col-xs-6 col-md-4">
     <div class="product tumbnail thumbnail-3">
-        <a href="{{product.Slug}}"><img src="{{product.ImageUrl}}" alt=""></a>
+        <a (click)="navigate(product.Slug)"><img src="{{product.ImageUrl}}" alt=""></a>
         <div class="caption">
-            <h6><a href="{{product.Slug}}">{{product.Name}}</a></h6><span class="price">
+            <h6><a (click)="navigate(product.Slug)">{{product.Name}}</a></h6><span class="price">
             </span><span class="price sale">$ {{product.Price}}</span>
         </div>
     </div>
 </div>
 `,
+    providers: [ProductService]
 } )
 
-@Injectable()
-export class ProductListComponent implements OnInit  {
-    private productList: Array<object>;
-    private httpObj: HttpClient;
+export class ProductListComponent implements OnInit {
+    productList: any;
+
+    constructor( private service: ProductService, private route: ActivatedRoute, private router: Router ) { }
 
     ngOnInit(): void {
 
-        this.httpObj.get( "/products/all" ).subscribe( data => {
-            var index: any;
-            for ( index in data ) {
-                this.productList.push( data[index] );
-            }
+        this.service.getProducts().subscribe( products => {
+            this.productList = products;
         } );
 
     }
 
-
-    constructor( http: HttpClient ) {
-        this.httpObj = http;
+    navigate( slug: string ): void {
+        this.router.navigate( ['/product/' + slug] );
     }
-
-    products = () => this.productList;
 }
