@@ -85,6 +85,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ProductServiceTest.cs" />
+    <Compile Include="Web\AngularControllerTest.cs" />
     <Compile Include="Web\ProductsControllerTest.cs" />
     <Compile Include="Web\ProductControllerTest.cs" />
     <Compile Include="Web\HomeControllerTest.cs" />
