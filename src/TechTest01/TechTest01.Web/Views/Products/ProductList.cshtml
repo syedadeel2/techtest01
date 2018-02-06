@@ -1,0 +1,11 @@
+﻿<div class="container bootstrap snipets">
+    <h1 class="text-center text-muted">Product Catalog</h1>
+    <div class="row flow-offset-1">
+
+        @foreach (var item in Model)
+        {
+            @Html.DisplayFor(x => item, "ProductListItem")
+        }
+
+    </div>
+</div>

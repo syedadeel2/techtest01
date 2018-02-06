@@ -20,6 +20,13 @@ namespace TechTest01.Web
                    constraints: new { slug = ".+"}
             );
 
+
+            routes.MapRoute(
+                   name: "Products",
+                   url: "products",
+                   defaults: new { controller = "Products", action = "ProductList" }
+            );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

@@ -21,7 +21,10 @@
                 @Html.ActionLink("True Alliance Online Shopping Store", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav"></ul>
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href='@Url.Action("ProductList", "Products")'>Our Products</a></li>
+                </ul>
             </div>
         </div>
     </div>

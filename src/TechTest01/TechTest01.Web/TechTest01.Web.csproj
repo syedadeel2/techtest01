@@ -119,6 +119,7 @@
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -138,6 +139,8 @@
     <Content Include="Views\Partial\Header.cshtml" />
     <Content Include="Views\Partial\Footer.cshtml" />
     <Content Include="Views\Product\ViewProduct.cshtml" />
+    <Content Include="Views\Products\ProductList.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ProductListItem.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -149,7 +152,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Angular\" />
-    <Folder Include="Views\Products\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TechTest01.Domain\TechTest01.Domain.csproj">

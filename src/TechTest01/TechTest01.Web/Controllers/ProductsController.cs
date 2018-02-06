@@ -7,26 +7,23 @@ using TechTest01.Services.Catalog;
 
 namespace TechTest01.Web.Controllers
 {
-    public class HomeController : Controller
+    public class ProductsController : Controller
     {
         private IProductService _productService;
 
-        public HomeController(IProductService productService)
+        public ProductsController(IProductService productService)
         {
             this._productService = productService;
         }
 
-        // GET: Home
-        public ActionResult Index()
+
+        // GET: Products
+        public ActionResult ProductList()
         {
             // Get All Products
             var products = _productService.GetProducts();
 
-            // Create Random Onbject
-           var rand = new Random();
-
-            // Randomize the list
-            var model = products.OrderBy(x => rand.Next()).Take(2).ToList();
+            var model = products;
 
             return View(model);
         }
