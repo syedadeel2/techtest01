@@ -8,12 +8,12 @@ namespace TechTest01.Shared.Exceptions
 {
     public class RecordNotFoundException : Exception
     {
-        public RecordNotFoundException() : base()
+        public RecordNotFoundException() : base("Record Not Found")
         {
 
         }
 
-        public RecordNotFoundException(string message) : base("Record Not Found")
+        public RecordNotFoundException(string message) : base(message)
         {
 
         }

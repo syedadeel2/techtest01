@@ -141,6 +141,8 @@
     <Content Include="Views\Product\ViewProduct.cshtml" />
     <Content Include="Views\Products\ProductList.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ProductListItem.cshtml" />
+    <Content Include="Views\Errors\NotFound.cshtml" />
+    <Content Include="Views\Errors\Exception.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -152,6 +154,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Angular\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TechTest01.Domain\TechTest01.Domain.csproj">
@@ -165,6 +168,10 @@
     <ProjectReference Include="..\TechTest01.Services\TechTest01.Services.csproj">
       <Project>{42aac603-b60d-4f86-b567-8cb5077acde0}</Project>
       <Name>TechTest01.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TechTest01.Shared\TechTest01.Shared.csproj">
+      <Project>{73502833-7605-4df6-b017-2e7b651d581f}</Project>
+      <Name>TechTest01.Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

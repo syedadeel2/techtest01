@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TechTest01.Services.Catalog;
+using TechTest01.Shared.Exceptions;
 
 namespace TechTest01.Web.Controllers
 {
@@ -16,6 +17,7 @@ namespace TechTest01.Web.Controllers
             this._productService = productService;
         }
 
+        [HandleError(ExceptionType = typeof(RecordNotFoundException), View = "~/Views/Errors/Exception.cshtml")]
         public ActionResult ViewProduct(string slug)
         {
             // if its empty let redirect back to home page.
@@ -28,6 +30,20 @@ namespace TechTest01.Web.Controllers
             var model = product;
 
             return View(model);
+        }
+
+        [Route("/api/product/{*slug}", Name = "GetProduct")]
+        public JsonResult GetProduct(string slug)
+        {
+            // if its empty let redirect back to home page.
+            if (string.IsNullOrEmpty(slug))
+            {
+                return Json(new { error = "Slug is required" });
+            }
+
+            var product = this._productService.GetBySlug(slug);
+
+            return Json(product);
         }
     }
 }

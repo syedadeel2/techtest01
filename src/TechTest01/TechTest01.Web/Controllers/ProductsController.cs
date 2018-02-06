@@ -27,5 +27,14 @@ namespace TechTest01.Web.Controllers
 
             return View(model);
         }
+
+        [Route("/api/products", Name = "GetProducts")]
+        public JsonResult GetProducts()
+        {
+            var products = this._productService.GetProducts();
+
+            return Json(products);
+        }
+
     }
 }
